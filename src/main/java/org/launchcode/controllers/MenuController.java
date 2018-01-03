@@ -55,7 +55,7 @@ CheeseDao cheeseDao;
 @RequestMapping(value= "view/{menuId}")
     public String viewMenu(Model model, @PathVariable int menuId){
         Menu menu =  menuDao.findOne(menuId);
-//        Object menu_obj = menuDao.findOne(menuId);
+    // model.addAttribute(menuDao.findOne(menuId));
         model.addAttribute("title",menu.getName());
         model.addAttribute("cheeses",menu.getCheeses());
         model.addAttribute("menuId",menu.getId());
