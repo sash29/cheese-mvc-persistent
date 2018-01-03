@@ -55,11 +55,11 @@ CheeseDao cheeseDao;
 @RequestMapping(value= "view/{menuId}")
     public String viewMenu(Model model, @PathVariable int menuId){
         Menu menu =  menuDao.findOne(menuId);
-    // model.addAttribute(menuDao.findOne(menuId));
-        model.addAttribute("title",menu.getName());
-        model.addAttribute("cheeses",menu.getCheeses());
-        model.addAttribute("menuId",menu.getId());
-
+        //model.addAttribute("title",menu.getName());
+        //model.addAttribute("cheeses",menu.getCheeses());
+        // model.addAttribute("menuId",menu.getId());
+    // Instead of passing name,ID,and list of cheeses separately to the view passing in the full Menu object, as below, is more efficient.
+        model.addAttribute("menu",menu);
         return "/menu/view";
     }
 @RequestMapping(value="add-item/{menuId}",method = RequestMethod.GET)
